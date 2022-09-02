@@ -11,7 +11,7 @@
         <p>
             If you like it, make sure to drop a star on
             <a
-                href="https://github.com/yayudev/password-generator"
+                href="https://github.com/yayudev/credit-card-input"
                 target="_blank">github</a
             >.
         </p>
