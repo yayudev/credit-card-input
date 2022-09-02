@@ -1,14 +1,26 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
     export let label: string = "";
     export let onlyNumbers: boolean = false;
     export let value: string = "";
     export let size: number = undefined;
     export let placeholder: string = "";
-    export let secondValue: string;
-    export let secondPlaceholder: string;
+    export let secondValue: string = undefined;
+    export let secondPlaceholder: string = "";
 
     $: includeDoubleInput = secondValue !== undefined;
     $: allowedPattern = onlyNumbers ? "[0-9]*" : undefined;
+
+    const dispatch = createEventDispatcher();
+
+    function onBlur() {
+        dispatch("blur");
+    }
+
+    function onFocus() {
+        dispatch("focus");
+    }
 </script>
 
 <label class="form-input-label">{label}</label>
@@ -22,6 +34,8 @@
         minlength={size}
         maxlength={size}
         bind:value
+        on:focus={onFocus}
+        on:blur={onBlur}
     />
 
     {#if includeDoubleInput}
@@ -33,6 +47,8 @@
             maxlength={size}
             placeholder={secondPlaceholder}
             bind:value={secondValue}
+            on:focus={onFocus}
+            on:blur={onBlur}
         />
     {/if}
 </div>
@@ -42,7 +58,7 @@
         text-transform: uppercase;
         font-weight: bold;
         font-size: 0.8rem;
-        letter-spacing: 0.15rem;
+        letter-spacing: 0.05rem;
     }
 
     .form-input-inputs-container {

@@ -1,13 +1,20 @@
 :root {
     --confirm-button-color: #48007c;
+    --card-back-color: #f2f3fd;
+    --input-border-color: #c6cde0;
+    --magnetic-bar: #464444;
+    --cvc-bar: #c6cde0;
+    --disclaimer-text: #949494;
+
+    --card-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+
     --bg-gradient: linear-gradient(66.94deg,
         rgba(217, 40, 210, 0.73) 11.54%,
         rgba(233, 41, 191, 0.73) 27.96%,
         rgba(245, 63, 96, 0.670127) 60.21%,
         rgba(245, 63, 63, 0.670127) 85.85%);
-    --input-border-color: #c6cde0;
 
-    font-family: "Barlow", Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Fira Mono", Inter, Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;

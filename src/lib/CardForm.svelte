@@ -6,14 +6,16 @@
     const dispatch = createEventDispatcher();
 
     export let cardFormValues: CardFormValues;
+    export let isValid: boolean = false;
+    export let backsideActive: boolean = false;
 
-    function submit(event: Event) {
+    $: submit = (event: Event) => {
         event.preventDefault();
 
-        dispatch("submitted", {
-            values: cardFormValues,
-        });
-    }
+        console.log("SEE, NOTHING HAPPENED :)");
+
+        dispatch("submitted", { values: cardFormValues });
+    };
 </script>
 
 <div class="form-input-container">
@@ -28,7 +30,6 @@
 
         <div class="form-input-row">
             <FormInput
-                class="form-input--number"
                 label="Card number"
                 onlyNumbers
                 size={16}
@@ -40,7 +41,6 @@
         <div class="form-input-row">
             <FormInput
                 label="Exp. Date (MM/YY)"
-                doubleInput
                 onlyNumbers
                 size={2}
                 placeholder="MM"
@@ -54,13 +54,26 @@
             <FormInput
                 label="CVC"
                 onlyNumbers
+                size={3}
                 placeholder="e.g. 123"
                 bind:value={cardFormValues.cvc}
+                on:focus={() => (backsideActive = true)}
+                on:blur={() => (backsideActive = false)}
             />
         </div>
 
         <div class="form-input-row">
-            <button class="form-submit-button" type="submit">Confirm</button>
+            <button
+                class="form-submit-button"
+                type="submit"
+                disabled={!isValid}
+            >
+                {#if isValid}
+                    Nice! But this button does nothing :)
+                {:else}
+                    You need to fill all fields
+                {/if}
+            </button>
         </div>
     </form>
 </div>
@@ -121,5 +134,10 @@
         font-size: 1.2rem;
         border-radius: 0.3rem;
         cursor: pointer;
+
+        &:disabled {
+            cursor: not-allowed;
+            background: var(--cvc-bar);
+        }
     }
 </style>
