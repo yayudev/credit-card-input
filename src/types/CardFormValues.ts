@@ -4,4 +4,4 @@ export type CardFormValues = {
     month: string;
     year: string;
     cvc: string;
-}
+};
