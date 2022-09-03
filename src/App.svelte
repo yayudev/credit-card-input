@@ -4,7 +4,7 @@
     import CardFront from "./lib/CardFront.svelte";
     import CardBack from "./lib/CardBack.svelte";
 
-    let backsideActive: boolean = false;
+    let backsideActive: boolean = true;
     let cardValues: CardFormValues = {
         name: "",
         number: "",
@@ -56,14 +56,30 @@
         position: relative;
     }
 
-    //@media screen and (max-width: 1200px) {
-    //    .content {
-    //        display: flex;
-    //        flex-direction: column;
-    //    }
-    //
-    //    .side-background {
-    //        height: 50vw;
-    //    }
-    //}
+    @media screen and (max-width: 980px) {
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-background {
+            min-height: 300px;
+            height: 30vw;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .side-background {
+            min-height: 200px;
+        }
+
+        .card-content {
+            padding-top: 1rem;
+        }
+    }
+
+    .content {
+        width: 100vw;
+        overflow-x: hidden;
+    }
 </style>

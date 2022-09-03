@@ -9,7 +9,7 @@
     <p class="cvc-bar">{cvc.padEnd(3, "0")}</p>
     <div class="cc-disclaimer">
         <p>
-            If you like it, make sure to drop a star on
+            If you like this, make sure to drop a star on
             <a
                 href="https://github.com/yayudev/credit-card-input"
                 target="_blank">github</a
@@ -42,16 +42,6 @@
         }
     }
 
-    @media screen and (max-width: 1200px) {
-        .card-back.active {
-            transform: rotateY(0deg)
-                translate(-100px, 125px)
-                scale(1.25);
-
-        }
-    }
-
-
     .magnetic-bar {
         width: 100%;
         margin-top: 20px;
@@ -65,18 +55,64 @@
         border-radius: 10px;
         padding: 0.5rem 1rem;
         margin: 0.75rem auto;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         text-align: end;
     }
 
     .cc-disclaimer {
-        font-size: 0.8rem;
-        padding: 0 4rem;
+        font-size: 0.75rem;
+        padding: 0 2.5rem;
         text-align: center;
         color: var(--disclaimer-text);
 
         p {
             margin: 0;
+        }
+    }
+
+
+    @media screen and (max-width: 1200px) {
+        .card-back.active {
+            transform: rotateY(0deg)
+            translate(-100px, 125px)
+            scale(1.25);
+
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .card-back {
+            top: -225px;
+            left: calc(50% - 225px);
+        }
+
+        .card-back.active {
+            transform: rotateY(0deg);
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .card-back {
+            width: 350px;
+            height: 200px;
+            top: -175px;
+            left: calc(50% - 350px / 2);
+        }
+
+        .magnetic-bar {
+            height: 45px;
+            margin-top: 20px;
+
+        }
+
+        .cvc-bar {
+            font-size: 1rem;
+            padding: .25rem 1rem;
+        }
+
+        .cc-disclaimer {
+            padding: 0 1rem;
+            font-size: .6rem;
         }
     }
 </style>

@@ -57,23 +57,6 @@
         }
     }
 
-    @media screen and (max-width: 1200px) {
-        .card-front {
-            top: calc(50% - 250px);
-            left: calc(-55vw + 250px);
-            transform: rotateY(180deg)
-            translate(-100px, 125px)
-            scale(1.25);
-        }
-    }
-
-    @media screen and (max-width: 1100px) {
-        .card-front {
-            top: calc(50% - 250px);
-            left: calc(-100% + 250px);
-        }
-    }
-
     .card-front-logo {
         position: absolute;
         top: 10px;
@@ -98,5 +81,55 @@
         grid-area: number;
         font-size: 2.1rem;
         text-align: center;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .card-front {
+            top: calc(50% - 250px);
+            left: calc(-55vw + 250px);
+            transform: rotateY(180deg)
+            translate(-100px, 125px)
+            scale(1.25);
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        .card-front {
+            top: calc(50vw - 250px);
+            left: calc(-100% + 250px);
+        }
+    }
+
+    @media screen and (max-width: 980px) {
+        .card-front {
+            top: -225px;
+            left: calc(50% - 225px);
+            transform: rotateY(180deg);
+        }
+
+        .card-front-number {
+            font-size: 2rem;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .card-front {
+            width: 350px;
+            height:200px;
+            top: -175px;
+            left: calc(50% - 350px/2);
+        }
+
+        .card-front-name {
+            font-size: 1rem;
+        }
+
+        .card-front-number {
+            font-size: 1.5rem;
+        }
+
+        .card-front-date {
+            font-size: 1.3rem;
+        }
     }
 </style>

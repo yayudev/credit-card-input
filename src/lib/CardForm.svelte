@@ -140,4 +140,30 @@
             background: var(--cvc-bar);
         }
     }
+
+    @media screen and (max-width: 980px) {
+        .form-input-container {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-input-form {
+            width: 100%;
+            max-height: initial;
+            max-width: initial;
+            padding: 10%;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .form-input-container {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-input-form {
+            padding: 10% 2%;
+            gap: 40px 10px;
+        }
+    }
 </style>
