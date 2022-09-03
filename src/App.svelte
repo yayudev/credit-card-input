@@ -3,6 +3,8 @@
     import type { CardFormValues } from "./types/CardFormValues";
     import CardFront from "./lib/CardFront.svelte";
     import CardBack from "./lib/CardBack.svelte";
+    import {validateCCNumber, validateCVC, validateExpiryDate, validateName} from "./validators/cc-validators";
+    import type {Validation} from "./types/validation";
 
     let backsideActive: boolean = true;
     let cardValues: CardFormValues = {
@@ -13,13 +15,19 @@
         cvc: "",
     };
 
-    // TODO: implement validations
+    let validations: Record<keyof Omit<CardFormValues, "year" | "month"> | "date", Validation> ;
+    $: validations ={
+        name: validateName(cardValues.name),
+        number: validateCCNumber(cardValues.number),
+        date: validateExpiryDate(cardValues.month, cardValues.year),
+        cvc: validateCVC(cardValues.cvc),
+    };
+
     $: isValid =
-        cardValues?.name &&
-        cardValues?.number.length === 16 &&
-        cardValues?.year.length === 2 &&
-        cardValues?.month.length === 2 &&
-        cardValues?.cvc.length === 3;
+        validations.name.valid
+        && validations.number.valid
+        && validations.cvc.valid
+        && validations.date.valid;
 </script>
 
 <div class="content">
