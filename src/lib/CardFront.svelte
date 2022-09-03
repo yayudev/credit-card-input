@@ -95,16 +95,25 @@
 
     @media screen and (max-width: 1100px) {
         .card-front {
-            top: calc(50vw - 250px);
+            top: calc(50vw - 400px);
             left: calc(-100% + 250px);
+            transform: rotateY(180deg)
+            translate(-50px, 50px)
+            scale(1.2);
+
+            &.active { transform: rotate(0); }
         }
     }
 
     @media screen and (max-width: 980px) {
         .card-front {
-            top: -225px;
-            left: calc(50% - 225px);
+            width: 350px;
+            height: 200px;
+            top: -175px;
+            left: calc(50% - 350px / 2);
             transform: rotateY(180deg);
+
+            &.active { transform: rotateY(0deg); }
         }
 
         .card-front-number {

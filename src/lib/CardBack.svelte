@@ -70,24 +70,42 @@
         }
     }
 
-
     @media screen and (max-width: 1200px) {
+        .card-back {
+            top: calc(50% - 250px);
+            left: calc(-55vw + 350px);
+            transform: rotateY(180deg);
+        }
+
         .card-back.active {
             transform: rotateY(0deg)
             translate(-100px, 125px)
             scale(1.25);
+        }
+    }
 
+    @media screen and (max-width: 1100px) {
+        .card-back {
+            top: calc(50vw - 400px);
+            left: calc(-100% + 250px);
+        }
+
+        .card-back.active {
+            transform: rotateY(0deg)
+            translate(-50px, 50px)
+            scale(1.2);
         }
     }
 
     @media screen and (max-width: 980px) {
         .card-back {
-            top: -225px;
-            left: calc(50% - 225px);
-        }
+            width: 350px;
+            height: 200px;
+            top: -175px;
+            left: calc(50% - 350px / 2);
+            transform: rotateY(180deg);
 
-        .card-back.active {
-            transform: rotateY(0deg);
+            &.active { transform: rotateY(0deg); }
         }
     }
 
@@ -97,6 +115,9 @@
             height: 200px;
             top: -175px;
             left: calc(50% - 350px / 2);
+            transform: rotateY(180deg);
+
+            &.active { transform: rotateY(0deg); }
         }
 
         .magnetic-bar {

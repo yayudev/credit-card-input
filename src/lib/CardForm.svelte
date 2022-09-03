@@ -151,7 +151,7 @@
             width: 100%;
             max-height: initial;
             max-width: initial;
-            padding: 10%;
+            padding: 7% 10%;
         }
     }
 
