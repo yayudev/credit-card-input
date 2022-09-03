@@ -37,12 +37,14 @@
     </main>
 </div>
 
-<style>
+<style lang="scss">
     .content {
         width: 100%;
         height: 100%;
         display: grid;
         grid-template-columns: 2fr 3fr;
+        grid-template-areas:
+            "side side content content content";
     }
 
     .side-background {
@@ -53,4 +55,15 @@
     .card-content {
         position: relative;
     }
+
+    //@media screen and (max-width: 1200px) {
+    //    .content {
+    //        display: flex;
+    //        flex-direction: column;
+    //    }
+    //
+    //    .side-background {
+    //        height: 50vw;
+    //    }
+    //}
 </style>

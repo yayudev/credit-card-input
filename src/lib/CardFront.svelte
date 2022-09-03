@@ -6,24 +6,20 @@
     export let active: boolean = true;
 
     $: formatedNumber = cardValues?.number
-        .padEnd(16, "0")
+        .padEnd(16, "_")
         .replace(/(.{4})/g, "$1 ");
+
+    $: month = cardValues?.month.padEnd(2, "-");
+    $: year = cardValues?.year.padEnd(2, "-");
+    $: cardName = cardValues?.name.toUpperCase() || "YOUR NAME HERE";
 </script>
 
 <div class="card-front" class:active>
     <img class="card-front-logo" height="80" width="120" src={ccLogo} alt="Credit card logo" />
 
-    <span class="card-front-number">
-        {formatedNumber}
-    </span>
-    <span class="card-front-name"
-        >{cardValues?.name.toUpperCase() || "YOUR NAME HERE"}</span
-    >
-    <span class="card-front-date"
-        >{cardValues?.month.padEnd(2, "0")}/{cardValues?.year.padEnd(
-            2,
-            "0"
-        )}</span
+    <span class="card-front-number">{formatedNumber}</span>
+    <span class="card-front-name" > {cardName}</span>
+    <span class="card-front-date">{month}/{year}</span
     >
 </div>
 
@@ -51,13 +47,30 @@
         padding: 2rem;
         color: white;
         backface-visibility: hidden;
-        transform: rotateY(180deg);
+        transform: rotateY(180deg) translate(-100px, 150px) scale(1.5);
         will-change: transform;
 
         transition: transform 500ms ease-in-out;
 
         &.active {
             transform: rotateY(0deg);
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .card-front {
+            top: calc(50% - 250px);
+            left: calc(-55vw + 250px);
+            transform: rotateY(180deg)
+            translate(-100px, 125px)
+            scale(1.25);
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        .card-front {
+            top: calc(50% - 250px);
+            left: calc(-100% + 250px);
         }
     }
 

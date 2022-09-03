@@ -38,9 +38,19 @@
         transition: transform 500ms ease-in-out;
 
         &.active {
-            transform: rotateY(0deg);
+            transform: rotateY(0deg) translate(-100px, 150px) scale(1.5);
         }
     }
+
+    @media screen and (max-width: 1200px) {
+        .card-back.active {
+            transform: rotateY(0deg)
+                translate(-100px, 125px)
+                scale(1.25);
+
+        }
+    }
+
 
     .magnetic-bar {
         width: 100%;
